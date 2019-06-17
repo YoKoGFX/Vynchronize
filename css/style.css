@@ -198,14 +198,14 @@ textarea.input-sm, select[multiple].input-sm {
     padding: 5px !important;
     float: right;
     /* padding-right: 11em; */
-    height: 140px;
+    height: 100px;
     width: 270px;
     overflow: scroll;
 }
 
 .invite-button {
-    height: 90px;
-    width: 90px;
+    height: 100px;
+    width: 100px;
 }
 
 .chat-users {
