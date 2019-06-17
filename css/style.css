@@ -182,7 +182,6 @@ textarea.input-sm, select[multiple].input-sm {
 }
 
 .chat {
-    width: 500px;
     height: 300px;
     overflow: scroll;
     border: 1px solid gray;
