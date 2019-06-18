@@ -199,7 +199,6 @@ textarea.input-sm, select[multiple].input-sm {
     float: right;
     /* padding-right: 11em; */
     height: 100px;
-    width: 270px;
     overflow: scroll;
 }
 
