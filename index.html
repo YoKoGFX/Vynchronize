@@ -51,6 +51,15 @@
               </a>
             </li> -->
                     <li class="nav-item">
+                        <a id="chat-nav" class="nav-link js-scroll-trigger hide" href="#messageArea">Chatroom</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="about-nav" class="nav-link js-scroll-trigger hide" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="contact-nav" class="nav-link js-scroll-trigger hide" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="https://github.com/kyle8998/Vynchronize">Source Code</a>
                     </li>
                 </ul>
@@ -102,7 +111,7 @@
                     <div class="mobile-hide"><b>Mobile User</b>, please play the video once manually to give the browser permission to control the video player. </div>
                     <!-- <hr style="height:0pt; visibility:hidden;" /> -->
 
-                    <div class="pb-3 pt-3" style="display:none" class="dropdown">
+                    <div class="pb-3 pt-3" class="dropdown">
                         <button style="background-color: #007bff" class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-video"></i> Player
                         </button>
@@ -137,32 +146,37 @@
                     <!----------------------------------- PLAYER AREA ----------------------------------->
                     <!-- <hr> -->
                     <div>
-                        <button id="playButton" onclick="playVideo(roomnum)" style="margin-top:.5rem" class="btn btn-primary"><i class="fa fa-play"></i> Play & Pause</button>
+                        <button id="playButton" onclick="playVideo(roomnum)" style="margin-top:.5rem" class="btn btn-primary"><i class="fa fa-play"></i> Play / <i class="fa fa-pause"></i> Pause</button>
 
-                        <button id="syncbutton" onclick="syncVideo(roomnum);syncAlert()" style="margin-top:.5rem" class="btn btn-primary">
-                          <svg width="20" height="20" viewBox="0 0 20 20" class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" data-svg="refresh"><path fill="none" stroke="#fff" stroke-width="1.1" d="M17.08,11.15 C17.09,11.31 17.1,11.47 17.1,11.64 C17.1,15.53 13.94,18.69 10.05,18.69 C6.16,18.68 3,15.53 3,11.63 C3,7.74 6.16,4.58 10.05,4.58 C10.9,4.58 11.71,4.73 12.46,5"></path><polyline fill="none" stroke="#fff" points="9.9 2 12.79 4.89 9.79 7.9"></polyline></svg>Sync</button>
+                        <button id="syncbutton" onclick="syncVideo(roomnum);syncAlert()" style="margin-top:.5rem" class="btn btn-primary"><i class="fa fa-sync"></i> Sync</button>
 
+                        <button id="loveButton" onclick="loveLive(roomnum)" style="margin-top:.5rem" class="btn btn-primary"><i class="far fa-heart"></i> Random K-pop</button>
                         <!-- <br/> -->
-                        <button id="hostbutton" onclick="changeHost(roomnum)" style="margin-top:.5rem" class="btn btn-primary"><svg width="20" height="20" class="svg-inline--fa" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="bolt"><path fill="#fff" d="M4.74,20 L7.73,12 L3,12 L15.43,1 L12.32,9 L17.02,9 L4.74,20 L4.74,20 L4.74,20 Z M9.18,11 L7.1,16.39 L14.47,10 L10.86,10 L12.99,4.67 L5.61,11 L9.18,11 L9.18,11 L9.18,11 Z"></path></svg>Make me the host!</button>
+                        <button id="hostbutton" onclick="changeHost(roomnum)" style="margin-top:.5rem" class="btn btn-primary"><i class="fas fa-users"></i> Make me the host!</button>
                         <!-- Turn off the lights -->
                         <button id="lightButton" style="margin-top:.5rem" class="btn btn-primary switch"><i style="pointer-events:none;" class="fas fa-lightbulb"></i></button>
-
-                        <button id="changeButton" onclick="changeVideoParse(roomnum)" style="margin-top:.5rem" class="btn btn-primary"><i class="fas fa-exchange-alt"></i> Change Video</button>
-
                     </div>
 
                     <!-- Div for lights off! -->
                     <div id='persoff'></div>
 
                     <div class="topbotmargins">
-                        <input type="Video" style="max-width: 400px; margin-right: .5rem; margin-bottom: .5rem; float: left;" class="form-control" id="inputVideoId" placeholder="Video ID / URL">
+                        <input type="Video" style="max-width: 200px; margin-right: .5rem; margin-bottom: .5rem; float: left;" class="form-control" id="inputVideoId" placeholder="Video ID / URL">
+                        <button id="enqueueButton" onclick="enqueueVideoParse(roomnum)" class="btn btn-secondary"><i class="fas fa-plus"></i> Add to Queue</button>
+                        <button id="emptyButton" onclick="emptyQueue(roomnum)" class="btn btn-secondary"><i class="fas fa-trash"></i> Empty Queue</button>
                     </div>
                     <div>
+                        <!-- <a class="ghost-button-full-color"><i class="far fa-times-circle"></i></a> -->
+                        <button id="changeButton" onclick="changeVideoParse(roomnum)" class="btn btn-secondary"><i class="fas fa-exchange-alt"></i> Change Video</button>
+                        <button id="previousButton" onclick="prevVideo(roomnum)" class="btn btn-secondary"><i class="fas fa-step-backward"></i> Previous</button>
+                        <button id="nextButton" onclick="playNext(roomnum)" class="btn btn-secondary"><i class="fas fa-step-forward"></i> Next</button>
+
+                        <br/>
 
                     </div>
                     <!-- <input type="file" id="html5-input" /> -->
                     <!-- Playlist shit -->
-                    <div id="visual-queue" style="display:none" class="vid-list-container">
+                    <div id="visual-queue" class="vid-list-container">
                         <ul class="vid-list" id="vidlist">
                             <li class="vid-item">
                                 <!-- <div class="thumb">
@@ -175,7 +189,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div id="queue-arrows" style="display:none" class="arrows">
+                    <div id="queue-arrows" class="arrows">
                         <div class="arrow-left">
                             <i class="fa fa-chevron-left fa-lg"></i>
                         </div>
@@ -197,7 +211,7 @@
                 </div>
 
                 <!-- /.col-lg-8 -->
-                <div style="padding-top:8px;" class="col-lg-5">
+                <div style="padding-top:33px;" class="col-lg-5 mt-5">
                     <!-- <div class="col-md-4"> -->
                     <!-- <div id="onlineArea" class="row"> -->
                     <h5 class="right-header">Online Users</h5>
@@ -296,6 +310,46 @@
             <!-- /.row -->
 
             <!-- <hr style="height:20pt; visibility:hidden;" /> -->
+            <section id="about" class="bg-light">
+                <hr style="height:100pt; visibility:hidden;" />
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <h2>About Vynchronize</h2>
+                            <p class="lead">Vynchronize is a video synchronization platform created for viewing parties with friends!</p>
+                            <p> To use Vynchronize just enter your name and a shared room number with friends. Then all you have to do is select your video client (YouTube by default), enter a video ID, and click "Change Video". All video playback should
+                                be synchronized to everyone in the room! </p>
+                            <p> There is one host per room that can control the video client directly with the native player controls. Everyone else can still use them but it will only affect them until they hit sync!</p>
+                            <p> Have fun watching videos with friends!</p>
+                        </div>
+                    </div>
+                </div>
+                <hr style="height:100pt; visibility:hidden;" />
+            </section>
+            <hr style="height:20pt; visibility:hidden;" />
+
+            <section id="contact" class="bg-light">
+                <hr style="height:100pt; visibility:hidden;" />
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <h2>Contact Me</h2>
+                            <p class="lead">Who Am I?</p>
+                            <p> I'm Kyle! A student and developer just trying build software for the everyday user! I developed Vynchronize because it was a problem that I needed to solve myself, and now I continue to build it for the those who enjoy using
+                                it! :)</p>
+                            <p> You can contact me directly at <a href="mailto:kylelim8998@gmail.com?Subject=Vynchronize">kylelim8998@gmail.com</a> if you have any questions, concerns, or just to say hi! If you want to submit a suggestion, please see the
+                                github issues page.</p>
+                            <p> Also I want to keep the website up and running with an ad-free experience because I hate ads too! I'm currently paying for servers and a domain, but they are expensive to a broke college kid. If you would like to donate click
+                                below! I appreciate the support!</p>
+                            <a href="https://www.paypal.me/kylelim"><button style="margin-top:.5rem" class="btn btn-primary"><i class="far fa-heart"></i> Donate</button></a>
+                        </div>
+                    </div>
+                </div>
+                <hr style="height:100pt; visibility:hidden;" />
+            </section>
+            <hr style="height:50pt; visibility:hidden;" />
 
         </div>
     </div>
