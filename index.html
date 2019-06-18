@@ -141,7 +141,7 @@
                     <!-- <br/> <b>Note:</b> Mobile web browsers do not support autoplay. Host can control player natively. -->
 
                     <!-- INVITE MOVED TO MODAL -->
-                    <!-- <p id="invite">Invite a friend! Send them the link: share-videos-yt.herokuapp.com/ROOMNUM</p> -->
+                    <!-- <p id="invite">Invite a friend! Send them the link: https://share-videos-yt.herokuapp.com/ROOMNUM</p> -->
                     <h2><span id="hostlabel" class="label text-white label-default"><i class="fas fa-user"></i> Current Host: Kyle </span></h2>
 
                     <!----------------------------------- PLAYER AREA ----------------------------------->
@@ -264,8 +264,8 @@
                                 </div>
                                 <div class="modal-body">
                                     <p>Send a friend your unique room link so they can watch videos too!</p>
-                                    <!-- <p style="text-align: center;" id="invite">share-videos-yt.herokuapp.com/ROOMNUM</p> -->
-                                    <input class="inv_input" id="inv_input" type="text" value="share-videos-yt.herokuapp.com/ROOMNUM" class="field left" readonly>
+                                    <!-- <p style="text-align: center;" id="invite">https://share-videos-yt.herokuapp.com/ROOMNUM</p> -->
+                                    <input class="inv_input" id="inv_input" type="text" value="https://share-videos-yt.herokuapp.com/ROOMNUM" class="field left" readonly>
                                 </div>
                                 <div class="modal-footer">
                                     <div style="opacity: 1" class="tooltip">
@@ -541,8 +541,8 @@
                             }
 
                             // Sets the invite link (roomnum)
-                            // document.getElementById('invite').innerHTML = "share-videos-yt.herokuapp.com/" + roomnum
-                            document.getElementById("inv_input").value = "share-videos-yt.herokuapp.com/" + roomnum
+                            // document.getElementById('invite').innerHTML = "https://share-videos-yt.herokuapp.com/" + roomnum
+                            document.getElementById("inv_input").value = "https://share-videos-yt.herokuapp.com/" + roomnum
                         }
                     });
                     // Join room
