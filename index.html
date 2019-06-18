@@ -51,6 +51,9 @@
               </a>
             </li> -->
                     <li class="nav-item">
+                        <a id="chat-nav" class="nav-link js-scroll-trigger hide" href="#messageArea">Chatroom</a>
+                    </li>
+                    <li class="nav-item">
                         <a id="about-nav" class="nav-link js-scroll-trigger hide" href="#about">About</a>
                     </li>
                     <li class="nav-item">
@@ -159,19 +162,42 @@
 
                     <div class="topbotmargins">
                         <input type="Video" style="max-width: 200px; margin-right: .5rem; margin-bottom: .5rem; float: left;" class="form-control" id="inputVideoId" placeholder="Video ID / URL">
-                        <button id="enqueueButton" onclick="enqueueVideoParse(roomnum)" class="btn btn-secondary"><i class="fas fa-plus"></i> Add to Queue</button>
-                        <button id="emptyButton" onclick="emptyQueue(roomnum)" class="btn btn-secondary"><i class="fas fa-trash"></i> Empty Queue</button>
+                        <button id="enqueueButton" onclick="enqueueVideoParse(roomnum)" class="btn btn-primary"><i class="fas fa-plus"></i> Add to Queue</button>
+                        <button id="emptyButton" onclick="emptyQueue(roomnum)" class="btn btn-primary"><i class="fas fa-trash"></i> Empty Queue</button>
                     </div>
                     <div>
                         <!-- <a class="ghost-button-full-color"><i class="far fa-times-circle"></i></a> -->
-                        <button id="changeButton" onclick="changeVideoParse(roomnum)" class="btn btn-secondary"><i class="fas fa-exchange-alt"></i> Change Video</button>
-                        <button id="previousButton" onclick="prevVideo(roomnum)" class="btn btn-secondary"><i class="fas fa-step-backward"></i> Previous</button>
-                        <button id="nextButton" onclick="playNext(roomnum)" class="btn btn-secondary"><i class="fas fa-step-forward"></i> Next</button>
+                        <button id="changeButton" onclick="changeVideoParse(roomnum)" class="btn btn-primary"><i class="fas fa-exchange-alt"></i> Change Video</button>
+                        <button id="previousButton" onclick="prevVideo(roomnum)" class="btn btn-primary"><i class="fas fa-step-backward"></i> Previous</button>
+                        <button id="nextButton" onclick="playNext(roomnum)" class="btn btn-primary"><i class="fas fa-step-forward"></i> Next</button>
 
                         <br/>
 
                     </div>
                     <!-- <input type="file" id="html5-input" /> -->
+                    <!-- Playlist shit -->
+                    <div id="visual-queue" class="vid-list-container">
+                        <ul class="vid-list" id="vidlist">
+                            <li class="vid-item">
+                                <!-- <div class="thumb">
+                                    <a onClick="removeAt(0)" class="ghost-button-full-color"><i class="far fa-times-circle"></i></a>
+                                    <img src="http://img.youtube.com/vi/eg6kNoJmzkY/0.jpg">
+                                </div>
+                                <div class="desc">
+                                    Jessica Hernandez & the Deltas - Dead Brains
+                                </div> -->
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="queue-arrows" class="arrows">
+                        <div class="arrow-left">
+                            <i class="fa fa-chevron-left fa-lg"></i>
+                        </div>
+                        <div class="arrow-right">
+                            <i class="fa fa-chevron-right fa-lg"></i>
+                        </div>
+                    </div>
+                    <br/>
 
                     <!-- HTML5 player input -->
                     <!-- <input type="file" id="html5-input" /> -->
@@ -185,7 +211,7 @@
                 </div>
 
                 <!-- /.col-lg-8 -->
-                <div style="padding-top:30px;" class="col-lg-5 mt-5">
+                <div style="padding-top:33px;" class="col-lg-5 mt-5">
                     <!-- <div class="col-md-4"> -->
                     <!-- <div id="onlineArea" class="row"> -->
                     <h5 class="right-header">Online Users</h5>
@@ -193,14 +219,39 @@
 
                     <!-- <br/> -->
                     <div class="col-md-13">
-                        <div class="well online-users scrollbar col-md-9">
+                        <div class="well online-users scrollbar">
                             <ul class="list-group" id="users"></ul>
                         </div>
 
                         <!-- Trigger the modal with a button -->
                         <button style="background-color: #007bff" type="button" class="nonmobile-hide btn btn-info btn-sm invite-button" data-toggle="modal" data-target="#inviteModal"><i style="width: 30px; height: 30px;" class="fas fa-user-plus"></i><br><h5>Invite</h5></button>
                     </div>
+                    <!-- Modal -->
+                    <div id="inviteModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
 
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Invite a Friend</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Send a friend your unique room link so they can watch videos too!</p>
+                                    <!-- <p style="text-align: center;" id="invite">https://share-videos-yt.herokuapp.com/ROOMNUM</p> -->
+                                    <input class="inv_input" id="inv_input" type="text" value="https://share-videos-yt.herokuapp.com/ROOMNUM" class="field left" readonly>
+                                </div>
+                                <div class="modal-footer">
+                                    <div style="opacity: 1" class="tooltip">
+                                        <button type="button" class="btn btn-default" onclick="copyInvite()" onmouseout="outFunc()"><span class="tooltiptext" id="myTooltip">Copy to clipboard</span><i class="fas fa-clipboard"></i> Copy to Clipboard</button>
+                                    </div>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- </div> -->
                     <!-- </div> -->
 
                 </div>
@@ -208,7 +259,7 @@
             </div>
 
             <!-- /.row -->
-            <br/>
+
             <!-- Call to Action Well -->
             <div class="card text-white bg-secondary my-4 text-center">
                 <div class="card-body">
@@ -639,6 +690,7 @@
     <!-- Vimeo -->
     <script src="https://player.vimeo.com/api/player.js"></script>
     <script src="js/vimeo.js"></script>
+    <!-- HTML5 Player -->
 
 </body>
 
