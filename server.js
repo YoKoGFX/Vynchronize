@@ -1,6 +1,11 @@
 var express = require('express');
 var compression = require('compression')
 var app = express();
+
+// compress
+app.use(compression())
+
+
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 
@@ -15,9 +20,6 @@ DM_API_KEY = process.env.DM_API_KEY
 
 // Set given room for url parameter
 var given_room = ""
-
-// compress
-app.use(compression())
 
 app.use(express.static(__dirname + '/'));
 
