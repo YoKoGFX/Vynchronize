@@ -16,7 +16,8 @@
     "express": "*",
     "lodash": "^4.17.11",
     "socket.io": "*",
-    "compression": "*"
+    "compression": "*",
+    "request": "*"
   },
   "bugs": {
     "url": "https://github.com/kyle8998/Vynchronize/issues"
