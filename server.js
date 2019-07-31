@@ -1,14 +1,8 @@
 var express = require('express');
+var compression = require('compression')
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
-
-
-var request = require('request'), zlib = require('zlib');
-
-var headers = {
-    'Accept-Encoding': 'gzip'
-};
 
 users = [];
 connections = [];
@@ -22,6 +16,8 @@ DM_API_KEY = process.env.DM_API_KEY
 // Set given room for url parameter
 var given_room = ""
 
+// compress
+app.use(compression())
 
 app.use(express.static(__dirname + '/'));
 
