@@ -1,22 +1,7 @@
-// var express = require('express');
-// var app = express();
+var express = require('express');
+var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
-
-
-
-
-var compression = require('compression')
-var express = require('express')
-
-var app = express()
-
-// compress all responses
-app.use(compression())
-
-
-
-
 
 users = [];
 connections = [];
