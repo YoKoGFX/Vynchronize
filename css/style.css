@@ -216,7 +216,7 @@ textarea.input-sm, select[multiple].input-sm {
     padding: 5px !important;
     float: right;
     /* padding-right: 11em; */
-    height: 100px;
+    height: 150px;
     overflow: auto;
 }
 
