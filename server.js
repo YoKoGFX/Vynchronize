@@ -1,5 +1,4 @@
 var express = require('express');
-var compression = require('compression');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
