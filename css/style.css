@@ -5,7 +5,11 @@ body {
 .modal {
   text-align: center;
 }
-
+@media (min-width: 1300px) {
+.container {
+    max-width: 1300px;
+    }
+}
 @media screen and (min-width: 768px) { 
   .modal:before {
     display: inline-block;
