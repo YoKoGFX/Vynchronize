@@ -1,13 +1,7 @@
-
-const compression = require('compression')
-let oneYear = 1 * 365 * 24 * 60 * 60 * 1000;
-
 var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
-
-
 
 users = [];
 connections = [];
@@ -21,8 +15,6 @@ DM_API_KEY = process.env.DM_API_KEY
 // Set given room for url parameter
 var given_room = ""
 
-// compress all responses
-app.use(compression());
 
 app.use(express.static(__dirname + '/'));
 
