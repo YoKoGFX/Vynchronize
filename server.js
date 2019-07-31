@@ -17,6 +17,9 @@ var given_room = ""
 
 app.use(express.static(__dirname + '/'));
 
+app.use(compression());
+
+
 server.listen(process.env.PORT || 3000);
 console.log('Server Started . . .');
 
