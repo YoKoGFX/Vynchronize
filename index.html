@@ -500,7 +500,7 @@
             socket.on('get users', function(data) {
                 var html = '';
                 for (i = 0; i < data.length; i++) {
-                    html += '<li style="padding-right: 10em;" class="list-group-item chat-users">' + data[i] + '</li>';
+                    html += '<li id="#chat-user" style="padding-right: 10em;" class="list-group-item chat-users">' + data[i] + '</li>';
                     // html += '<div class="well well-sm message-well">' + data[i] + '</div>';
                     // <div class="well well-sm message-well"><strong>
                 }
