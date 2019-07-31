@@ -3,6 +3,13 @@ var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 
+
+var request = require('request'), zlib = require('zlib');
+
+var headers = {
+    'Accept-Encoding': 'gzip'
+};
+
 users = [];
 connections = [];
 rooms = [];
