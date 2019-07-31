@@ -45,6 +45,10 @@ socket.on('changeHostLabel', function(data) {
     hostlabel.innerHTML = "<i class=\"fas fa-user\"></i> Current Host: " + user
 
 
+    var chat-user = document.getElementById('chat-user')
+    chat-user.innerHTML = "<i class=\"fas fa-user\"></i> Current Host: " + user
+
+
     // Generate notify alert
     // CANNOT CALL IT HERE
     // socket.emit('notify alerts', {
