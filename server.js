@@ -1,11 +1,23 @@
 var express = require('express');
-var app = express();
+// var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 
-const compression = require('compression');
-const app = express();
-app.use(compression());
+var compression = require('compression')
+var express = require('express')
+
+var app = express()
+app.use(compression({ filter: shouldCompress }))
+
+function shouldCompress (req, res) {
+  if (req.headers['x-no-compression']) {
+    // don't compress responses with this request header
+    return false
+  }
+
+  // fallback to standard filter function
+  return compression.filter(req, res)
+}
 
 
 users = [];
