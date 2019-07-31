@@ -96,7 +96,7 @@
                         <input class="form-control" placeholder="Your Room-ID" id="roomnum" />
                         <br/>
 
-                        <input style="margin-top: 10px;font-size:12px;" type="submit" href="https://share-videos-yt.herokuapp.com/ROOMNUM" class="btn btn-secondary" value="START WATCHING VIDEOS" />
+                        <input style="margin-top: 10px;font-size:12px;" type="submit" class="btn btn-secondary" value="START WATCHING VIDEOS" />
                         <hr style="height:65pt; visibility:hidden;" />
                     </div>
                 </form>
@@ -480,6 +480,7 @@
                             // Sets the invite link (roomnum)
                             // document.getElementById('invite').innerHTML = "https://share-videos-yt.herokuapp.com/" + roomnum
                             document.getElementById("inv_input").value = "https://share-videos-yt.herokuapp.com/" + roomnum
+                            history.pushState('', 'New Page Title', roomnum);
                         }
                     });
                     // Join room
