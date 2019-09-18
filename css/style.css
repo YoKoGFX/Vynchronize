@@ -2,6 +2,10 @@ body {
     margin-top: 30px;
 }
 
+#loading{
+display: none !important;
+}
+
 .modal {
   text-align: center;
 }
