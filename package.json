@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/kyle8998/Vynchronize#readme",
   "devDependencies": {
-    "jshint": "^2.9.5"
+    "jshint": "^2.11.1"
   }
 }
